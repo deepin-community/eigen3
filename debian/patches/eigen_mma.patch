@@ -1,0 +1,19 @@
+Description: Disable EIGEN_ALTIVEC_DISABLE_MMA on ppc64el
+Bug-RedHat: https://bugzilla.redhat.com/show_bug.cgi?id=1996330
+Origin: vendor, https://src.fedoraproject.org/rpms/eigen3/c/5242355a2d8c984a9058ed34cb38bdfbcd441ba1
+Author: Rich Mattes <richmattes@gmail.com>
+Last-Update: 2021-09-12
+
+--- a/Eigen/src/Core/arch/AltiVec/MatrixProduct.h
++++ b/Eigen/src/Core/arch/AltiVec/MatrixProduct.h
+@@ -28,6 +28,10 @@
+ #endif
+ #endif
+ 
++#ifdef __PPC64__
++#define EIGEN_ALTIVEC_DISABLE_MMA
++#endif
++
+ #ifdef __has_builtin
+ #if __has_builtin(__builtin_mma_assemble_acc)
+   #define ALTIVEC_MMA_SUPPORT

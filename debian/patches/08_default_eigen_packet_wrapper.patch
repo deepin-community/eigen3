@@ -1,0 +1,19 @@
+Description: Default eigen_packet_wrapper constructor
+ Fixes eigen 3.4.0 warnings when building with GCC 11 for aarch64
+Origin:  Antonio Sánchez
+Forwarded: https://gitlab.com/libeigen/eigen/-/merge_requests/645
+Applied-Upstream: https://gitlab.com/libeigen/eigen/-/merge_requests/645
+Last-Update: 2022-02-18
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/Eigen/src/Core/GenericPacketMath.h
++++ b/Eigen/src/Core/GenericPacketMath.h
+@@ -160,7 +160,7 @@
+ {
+   EIGEN_ALWAYS_INLINE operator T&() { return m_val; }
+   EIGEN_ALWAYS_INLINE operator const T&() const { return m_val; }
+-  EIGEN_ALWAYS_INLINE eigen_packet_wrapper() {}
++  EIGEN_ALWAYS_INLINE eigen_packet_wrapper() = default;
+   EIGEN_ALWAYS_INLINE eigen_packet_wrapper(const T &v) : m_val(v) {}
+   EIGEN_ALWAYS_INLINE eigen_packet_wrapper& operator=(const T &v) {
+     m_val = v;
