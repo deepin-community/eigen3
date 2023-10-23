@@ -1,0 +1,8 @@
+#02_remove_buildtype_check.patch
+08_default_eigen_packet_wrapper.patch
+05_remove_html_timestamp.patch
+06_remove_doc_matrix.patch
+07_remove_compressed_doc.patch
+12_grammar_tweak.patch
+eigen_mma.patch
+20_port_EIGEN_OPTIMIZATION_BARRIER.patch
